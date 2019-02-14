@@ -1,0 +1,116 @@
+@import "icons";
+html{
+  background-color: black;
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+.todo{
+  &__list {
+    max-width: 40rem;
+    margin: 2rem auto;
+    text-align: left;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    background-color: #083a3a;
+    border: 1px solid #8d8df2;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    border-bottom: none;
+
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 2rem;
+    color: white;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-bottom: 1px solid #007e80;
+    cursor: pointer;
+
+    .icon-checkmark2 {
+      font-size: 3rem;
+      color: green;
+      margin-right: 2rem;
+    }
+  }
+
+}
+
+.todo__form {
+  margin: 2rem auto;
+  max-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #083a3a;
+  margin-top: -20px;
+  border-bottom-left-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+  border: 1px solid #8d8df2;
+  border-top: none;
+
+  & button {
+    margin-top: 2rem;
+    padding: 1rem 1rem;
+    background-color: transparent;
+    border: none;
+    color: #b9f5b9;
+    box-shadow: 0 0 5px 3px #116511;
+    border-radius: .5rem;
+    &:last-child{
+      margin-bottom: 4rem;
+      color: #fda0a0;
+      box-shadow: 0 0 5px 3px #8e0303;
+    }
+  }
+
+
+
+  & form {
+    margin-top: 2rem;
+
+    & label {
+      color: white;
+      font-size: 1.6rem;
+      font-weight: bold;
+
+    }
+
+    & input {
+      padding: .4rem 1rem;
+      color: white;
+      border: none;
+      background-color: #083a3a;
+      border-bottom: 1px solid #8d8df2;
+      &:focus {
+        border-color: green;
+        outline-offset: 0;
+        outline: none;
+      }
+
+    }
+
+    & #submit {
+      border: none;
+      margin-left: 1rem;
+      color: green;
+      cursor: pointer;
+      font-size: 1.6rem;
+      border-radius: .5rem;
+      box-shadow: 0 0 5px 3px #116511;
+
+    }
+
+
+  }
+}
+
+.complete {
+  text-decoration: line-through;
+  color: #b9f5b9;
+}
