@@ -10,10 +10,9 @@ class App extends React.Component {
     constructor( props ) {
         super( props );
         
-        debugger;
         this.window = Window;
         this.storage = localStorage;
-        
+        debugger;
         let state = undefined;
         let todos = [];
         if( this.storage ) {
@@ -146,7 +145,7 @@ class App extends React.Component {
     
     render() {
         return (
-            <div>
+            <div className="container">
                 <Search searchWord={this.state.search} searhFun={this.search}/>
                 <TodoList
                     todos={ this.state.todos }

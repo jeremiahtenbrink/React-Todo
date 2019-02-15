@@ -1,19 +1,21 @@
 @import "icons";
-html{
-  background-color: black;
+
+$font-color: #0000007d;
+
+html {
+  background-color: white;
   box-sizing: border-box;
   font-size: 62.5%;
 }
 
-.todo{
+.todo {
   &__list {
     max-width: 40rem;
     margin: 2rem auto;
     text-align: left;
     letter-spacing: 1px;
     word-spacing: 2px;
-    background-color: #083a3a;
-    border: 1px solid #8d8df2;
+    background-color: #ffffffc2;
     border-top-left-radius: .5rem;
     border-top-right-radius: .5rem;
     border-bottom: none;
@@ -25,15 +27,15 @@ html{
     justify-content: space-between;
     align-items: center;
     margin: 2rem 2rem;
-    color: white;
+    color: $font-color;
     font-size: 1.6rem;
     font-weight: bold;
-    border-bottom: 1px solid #007e80;
+    border-bottom: 1px solid $font-color;
     cursor: pointer;
 
     .icon-checkmark2 {
       font-size: 3rem;
-      color: green;
+      color: #1f7d1f;
       margin-right: 2rem;
     }
   }
@@ -47,35 +49,38 @@ html{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #083a3a;
+  background-color: #ffffffc2;
   margin-top: -20px;
   border-bottom-left-radius: .5rem;
   border-bottom-right-radius: .5rem;
-  border: 1px solid #8d8df2;
   border-top: none;
 
   & button {
     margin-top: 2rem;
     padding: 1rem 1rem;
-    background-color: transparent;
+    background-color: #00800026;
     border: none;
-    color: #b9f5b9;
-    box-shadow: 0 0 5px 3px #116511;
+    color: $font-color;
+    box-shadow: 0 0 5px 3px $font-color;
     border-radius: .5rem;
-    &:last-child{
+
+    &:focus {
+      outline: none;
+    }
+
+    &:last-child {
       margin-bottom: 4rem;
-      color: #fda0a0;
-      box-shadow: 0 0 5px 3px #8e0303;
+      color: $font-color;
+      background-color: #ff000026;
     }
   }
-
 
 
   & form {
     margin-top: 2rem;
 
     & label {
-      color: white;
+      color: $font-color;
       font-size: 1.6rem;
       font-weight: bold;
 
@@ -89,10 +94,11 @@ html{
 
     & input {
       padding: .4rem 1rem;
-      color: white;
+      color: $font-color;
       border: none;
-      background-color: #083a3a;
-      border-bottom: 1px solid #8d8df2;
+      background-color: #ffffffc2;
+      border-bottom: 1px solid $font-color;
+
       &:focus {
         border-color: green;
         outline-offset: 0;
@@ -105,11 +111,11 @@ html{
     & #submit {
       border: none;
       margin-left: 1rem;
-      color: green;
+      color: $font-color;
       cursor: pointer;
       font-size: 1.6rem;
       border-radius: .5rem;
-      box-shadow: 0 0 5px 3px #116511;
+      background-color: #00800026;
 
     }
 
@@ -118,31 +124,31 @@ html{
 }
 
 
-
 .search {
   margin: 1rem auto;
   max-width: 40rem;
-  background-color: #083a3a;
+  background-color: #ffffffa6;
   padding: 1rem 1rem;
   border-radius: 20px;
-  border: 1px solid #8d8df2;
+  /* border: 1px solid #8d8df2; */
 
-  &__form{
+  &__form {
     display: flex;
     justify-content: center;
     align-items: center;
 
     input {
-      background-color: #083a3a;
+      background-color: #fefeff;
       padding: .5rem 2rem;
       border: none;
-      border-bottom: 1px solid #8d8df2;
+      border-bottom: 1px solid $font-color;
       color: white;
       font-size: 1.6rem;
 
       &:focus {
         outline: none;
         border-bottom: 1px solid green;
+
         & + span {
           color: green;
         }
@@ -150,9 +156,9 @@ html{
 
     }
 
-    span{
+    span {
       font-size: 1.8rem;
-      color: #8d8df2;
+      color: $font-color;
       margin-left: 2rem;
     }
   }
@@ -160,9 +166,18 @@ html{
 
 .complete {
   text-decoration: line-through;
-  color: #b9f5b9;
+  color: #1f7d1f;
 }
 
-.auto-fill{
+.auto-fill {
   background-color: red;
+}
+
+.container {
+  background-image: linear-gradient(to bottom right, #ffffff54, white), url("../../pictures/rawpixel-722816-unsplash.jpg");
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-size: cover;
+  background-position: 0% 100%;
 }
