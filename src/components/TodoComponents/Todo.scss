@@ -142,7 +142,7 @@ html {
       padding: .5rem 2rem;
       border: none;
       border-bottom: 1px solid $font-color;
-      color: white;
+      color: $font-color;
       font-size: 1.6rem;
 
       &:focus {

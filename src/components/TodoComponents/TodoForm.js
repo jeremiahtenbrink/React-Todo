@@ -3,8 +3,10 @@ import './Todo.scss';
 
 //render new todo list item
 const TodoForm = ( props ) => {
+    debugger;
     return (
         //wraps form in div
+        
         <div className="todo__form">
             {/*creates form */}
             <form onSubmit={props.handleSubmit}>

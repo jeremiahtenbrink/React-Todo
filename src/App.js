@@ -98,6 +98,11 @@ class App extends React.Component {
                 this.storage.removeItem( "state" );
             }
         }
+        debugger;
+        if (this.state.todos.length === 0){
+            return this.setState( { errorMessage: "There are no todo items to clear." } );
+        }
+        
         this.setState( { todos: [], errorMessage: "" } );
     };
     
@@ -117,7 +122,12 @@ class App extends React.Component {
     
     completedItems = () => {
         this.setState( state => {
-            debugger;
+            const completed = state.todos.filter( ( todo ) => todo.completed );
+            
+            if( completed.length === 0 ) {
+                return { errorMessage: "There are no completed todos to remove." };
+            }
+            
             state.todos = state.todos.filter( ( todo ) => !todo.completed );
             this.checkStoarage();
             if( this.storage ) {
@@ -127,17 +137,18 @@ class App extends React.Component {
             }
             return {
                 todos: [ ...state.todos ],
+                errorMessage: ""
             };
         } );
     };
     
     search = ( event ) => {
         let text = event.target.value;
-    
-        if(this.state.todos.length === 0 && text === ""){
-            this.setState({errorMessage: ""})
-        }else if (this.state.todos.length === 0){
-            this.setState({errorMessage: "There are no items to search."})
+        
+        if( this.state.todos.length === 0 && text === "" ) {
+            this.setState( { errorMessage: "" } );
+        }else if( this.state.todos.length === 0 ) {
+            this.setState( { errorMessage: "There are no items to search." } );
         }
         
         this.setState( { search: text } );
@@ -146,7 +157,7 @@ class App extends React.Component {
     render() {
         return (
             <div className="container">
-                <Search searchWord={this.state.search} searhFun={this.search}/>
+                <Search searchWord={ this.state.search } searhFun={ this.search } />
                 <TodoList
                     todos={ this.state.todos }
                     completeToggle={ this.setCompletedToggle }
