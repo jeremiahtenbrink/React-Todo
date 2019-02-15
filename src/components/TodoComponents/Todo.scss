@@ -81,6 +81,12 @@ html{
 
     }
 
+    #error {
+      display: block;
+      color: red;
+      margin-top: 1rem;
+    }
+
     & input {
       padding: .4rem 1rem;
       color: white;
@@ -93,6 +99,23 @@ html{
         outline: none;
       }
 
+    }
+
+    & input[type=text] {
+      background: red;
+      font-weight: bold;
+      border-color: #2e2e2e;
+      border-style: solid;
+      border-width: 2px 2px 2px 2px;
+      outline: none;
+      padding: 10px 20px 10px 20px;
+      width: 250px;
+    }
+    /*Css to target the dropdownbox*/
+     & ul > .autocomplete {
+      color: green !important;
+      -moz-border-radius: 15px;
+      border-radius: 15px;
     }
 
     & #submit {
@@ -110,7 +133,52 @@ html{
   }
 }
 
+
+
+.search {
+  margin: 1rem auto;
+  max-width: 40rem;
+  background-color: #083a3a;
+  padding: 1rem 1rem;
+  border-radius: 20px;
+  border: 1px solid #8d8df2;
+
+  &__form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    input {
+      background-color: #083a3a;
+      padding: .5rem 2rem;
+      border: none;
+      border-bottom: 1px solid #8d8df2;
+      color: white;
+      font-size: 1.6rem;
+
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid green;
+        & + span {
+          color: green;
+        }
+      }
+
+    }
+
+    span{
+      font-size: 1.8rem;
+      color: #8d8df2;
+      margin-left: 2rem;
+    }
+  }
+}
+
 .complete {
   text-decoration: line-through;
   color: #b9f5b9;
+}
+
+.auto-fill{
+  background-color: red;
 }

@@ -3,6 +3,7 @@ import TodoItem from "./components/TodoComponents/TodoItem";
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
 import { encrypt, decrypt } from "./components/TodoComponents/Cryptr";
+import Search from "./components/TodoComponents/Search";
 
 class App extends React.Component {
     
@@ -27,18 +28,20 @@ class App extends React.Component {
         this.state = {
             text: "",
             todos: todos,
-            errorMessage: ""
+            errorMessage: "",
+            search: ""
         };
     }
     
     checkStoarage() {
         if( !this.storage ) {
-            this.storage = Window.localStorage;
+            this.storage = localStorage;
         }
     }
     
     // handle submit of form
     handleSubmit = ( event ) => {
+        debugger;
         let text = "";
         //stop form submission
         event.preventDefault();
@@ -71,9 +74,12 @@ class App extends React.Component {
         const todo = new TodoItem( text );
         
         // add it to the todos array in state
+        debugger;
         this.setState( ( state ) => {
             state.todos.push( todo );
+            debugger;
             this.checkStoarage();
+            
             if( this.storage ) {
                 this.storage.setItem( "state", encrypt( JSON.stringify( state ) ) );
             }else {
@@ -82,10 +88,10 @@ class App extends React.Component {
             
             return { todos: state.todos, errorMessage: "" };
         } );
+        debugger;
     };
     
     clearTodoList = () => {
-        debugger;
         this.checkStoarage();
         if( this.storage ) {
             this.checkStoarage();
@@ -121,15 +127,31 @@ class App extends React.Component {
                 localStorage.setItem( "state", encrypt( JSON.stringify( state ) ) );
             }
             return {
-                todos: [ ...state.todos ]
+                todos: [ ...state.todos ],
             };
         } );
+    };
+    
+    search = ( event ) => {
+        let text = event.target.value;
+    
+        if(this.state.todos.length === 0 && text === ""){
+            this.setState({errorMessage: ""})
+        }else if (this.state.todos.length === 0){
+            this.setState({errorMessage: "There are no items to search."})
+        }
+        
+        this.setState( { search: text } );
     };
     
     render() {
         return (
             <div>
-                <TodoList todos={ this.state.todos } completeToggle={ this.setCompletedToggle } />
+                <Search searchWord={this.state.search} searhFun={this.search}/>
+                <TodoList
+                    todos={ this.state.todos }
+                    completeToggle={ this.setCompletedToggle }
+                    searchWord={ this.state.search } />
                 <TodoForm
                     handleSubmit={ this.handleSubmit }
                     textValue={ this.state.text }

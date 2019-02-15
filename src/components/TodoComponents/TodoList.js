@@ -8,7 +8,14 @@ const TodoList = ( props ) => {
             
             {/*loop through todos*/}
             {props.todos.map((todo) => {
-                return (<Todo todo={todo} key={todo.id} completeToggle={props.completeToggle}/>);
+                if(props.searchWord === ""){
+                    return (<Todo todo={todo} key={todo.id} completeToggle={props.completeToggle}/>);
+                }else {
+                    if(todo.task.includes(props.searchWord)){
+                        return (<Todo todo={todo} key={todo.id} completeToggle={props.completeToggle}/>);
+                    }
+                }
+                
             })}
         </div>
     );

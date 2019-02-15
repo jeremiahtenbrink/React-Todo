@@ -12,11 +12,11 @@ const TodoForm = ( props ) => {
                     Create Task:
                 </label>
                 <input type="text" name="task"/>
-                <label htmlFor="errorMessage">
+                
+                <button id="submit">Submit</button>
+                <label htmlFor="errorMessage" id="error">
                     {(props.errorMessage ? props.errorMessage : "" )}
                 </label>
-                
-                <input id="submit" type="submit" value="Submit" />
             </form>
             {/*sets onclick event to app.cleartodolist*/}
             <button onClick={props.completedItems}>Clear Completed Items</button>
